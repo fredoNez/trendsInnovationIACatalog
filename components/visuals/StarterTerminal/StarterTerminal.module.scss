@@ -1,0 +1,19 @@
+.terminal {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-mid);
+  background: var(--bg-panel-3);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 12px 14px;
+  line-height: 1.8;
+}
+
+.prompt {
+  color: var(--amber);
+}
+
+.path {
+  color: var(--text-hi);
+}

@@ -1,0 +1,43 @@
+.diagram {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+
+  line {
+    stroke: var(--line-strong);
+    stroke-width: 1.2;
+  }
+
+  text {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    fill: var(--text-mid);
+  }
+}
+
+.activeLine {
+  stroke: var(--blue);
+  stroke-opacity: 0.65;
+  stroke-width: 1.4;
+}
+
+.hub {
+  fill: var(--bg-panel-3);
+  stroke: var(--blue);
+  stroke-width: 1.6;
+}
+
+.node {
+  fill: var(--bg-panel-3);
+  stroke: var(--line-strong);
+  stroke-width: 1.2;
+}
+
+.activeNode {
+  stroke: var(--blue);
+  stroke-width: 1.6;
+}
+
+.blueText {
+  fill: var(--blue);
+}

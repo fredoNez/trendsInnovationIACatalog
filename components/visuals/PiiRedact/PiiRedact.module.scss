@@ -1,0 +1,30 @@
+.block {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 2.1;
+  color: var(--text-dim);
+}
+
+.line {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.bar {
+  height: 10px;
+  background: var(--green);
+  opacity: 0.55;
+  border-radius: 1px;
+  display: inline-block;
+}
+
+.b1 {
+  width: 44px;
+}
+
+.b2 {
+  width: 64px;
+}

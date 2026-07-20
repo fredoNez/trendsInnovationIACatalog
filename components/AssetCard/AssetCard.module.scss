@@ -1,0 +1,140 @@
+.card {
+  position: relative;
+  border: 1px solid var(--line);
+  background: var(--bg-panel);
+  border-radius: 4px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease,
+    background 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    background: var(--bg-panel-2);
+  }
+}
+
+.dimmed {
+  opacity: 0.28;
+  filter: saturate(0.4);
+  pointer-events: none;
+}
+
+.blue {
+  &:hover {
+    border-color: var(--blue-line);
+    box-shadow: 0 20px 40px -20px rgba(77, 139, 255, 0.25);
+  }
+  .glow {
+    background: var(--blue);
+  }
+}
+
+.green {
+  &:hover {
+    border-color: var(--green-line);
+    box-shadow: 0 20px 40px -20px rgba(40, 217, 168, 0.25);
+  }
+  .glow {
+    background: var(--green);
+  }
+}
+
+.amber {
+  &:hover {
+    border-color: var(--amber-line);
+    box-shadow: 0 20px 40px -20px rgba(242, 171, 61, 0.25);
+  }
+  .glow {
+    background: var(--amber);
+  }
+}
+
+.glow {
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.card:hover .glow {
+  opacity: 0.14;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.desc {
+  font-size: 13.5px;
+  color: var(--text-mid);
+  line-height: 1.6;
+  max-width: 44ch;
+  margin-bottom: 18px;
+}
+
+.tags {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.visual {
+  margin-top: auto;
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  min-height: 70px;
+}
+
+.openHint {
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  letter-spacing: 0.03em;
+}
+
+.card:hover .openHint {
+  opacity: 1;
+}
+
+/* Flagship variant: currently only the Gateway card opts in via `featured` */
+.featured {
+  .title {
+    font-size: 26px;
+  }
+  .desc {
+    max-width: 52ch;
+    font-size: 14.5px;
+  }
+  .visual {
+    min-height: 165px;
+  }
+}

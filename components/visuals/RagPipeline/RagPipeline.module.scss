@@ -1,0 +1,33 @@
+.pipeline {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 6px 0;
+}
+
+.node {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-mid);
+  border: 1px solid var(--line-strong);
+  background: var(--bg-panel-3);
+  padding: 8px 10px;
+  border-radius: 2px;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  &.on {
+    color: var(--blue);
+    border-color: var(--blue-line);
+    background: var(--blue-dim);
+  }
+}
+
+.arrow {
+  color: var(--text-dim);
+  padding: 0 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  flex-shrink: 0;
+}

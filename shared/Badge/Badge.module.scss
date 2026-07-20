@@ -1,0 +1,27 @@
+.badge {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  padding: 4px 9px;
+  border-radius: 3px;
+  border: 1px solid;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.blue {
+  color: var(--blue);
+  border-color: var(--blue-line);
+  background: var(--blue-dim);
+}
+
+.green {
+  color: var(--green);
+  border-color: var(--green-line);
+  background: var(--green-dim);
+}
+
+.amber {
+  color: var(--amber);
+  border-color: var(--amber-line);
+  background: var(--amber-dim);
+}

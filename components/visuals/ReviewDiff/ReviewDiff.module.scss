@@ -1,0 +1,26 @@
+.diff {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.9;
+}
+
+.add {
+  color: var(--green);
+  background: rgba(40, 217, 168, 0.08);
+  display: block;
+  padding: 0 6px;
+}
+
+.rem {
+  color: #f2726e;
+  background: rgba(242, 114, 110, 0.08);
+  display: block;
+  padding: 0 6px;
+}
+
+.ctx {
+  color: var(--text-dim);
+  display: block;
+  padding: 0 6px;
+}

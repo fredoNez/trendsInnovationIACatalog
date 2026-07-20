@@ -1,0 +1,37 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 7px 11px;
+  background: var(--bg-panel-3);
+  color: var(--text-mid);
+
+  &:nth-child(1) {
+    opacity: 1;
+  }
+
+  &:nth-child(2) {
+    opacity: 0.7;
+    transform: translateX(6px);
+  }
+
+  &:nth-child(3) {
+    opacity: 0.45;
+    transform: translateX(12px);
+  }
+}
+
+.active {
+  color: var(--blue);
+}

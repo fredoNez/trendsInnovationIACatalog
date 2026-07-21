@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Trends & Innovation — AI Asset Catalog",
   description:
-    "Catálogo de infraestructura de IA lista para producción: gateways, pipelines RAG, sanitización de PII y más.",
+    "Production-ready AI infrastructure catalog: gateways, RAG pipelines, PII sanitization, and more.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

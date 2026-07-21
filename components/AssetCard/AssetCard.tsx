@@ -1,6 +1,6 @@
 import { CSSProperties } from "react";
 import { Asset } from "@/lib/assets";
-import { visualsByAssetId } from "@/components/visuals";
+import { VisualsByAsset } from "@/components/visuals";
 import Tag from "@/shared/Tag/Tag";
 import Badge from "@/shared/Badge/Badge";
 import CardId from "@/shared/CardId/CardId";
@@ -13,7 +13,6 @@ type Props = {
 };
 
 export default function AssetCard({ asset, dimmed, onOpen }: Props) {
-  const Visual = visualsByAssetId[asset.id];
 
   const gridStyle: CSSProperties = {
     gridColumn: `${asset.gridArea.colStart} / ${asset.gridArea.colEnd}`,
@@ -50,7 +49,7 @@ export default function AssetCard({ asset, dimmed, onOpen }: Props) {
         ))}
       </div>
       <div className={styles.visual}>
-        <Visual />
+        <VisualsByAsset asset={asset} />
       </div>
       <span className={styles.openHint}>CLICK →</span>
     </article>

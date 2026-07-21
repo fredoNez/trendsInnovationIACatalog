@@ -9,10 +9,10 @@ import styles from "./Catalog.module.scss";
 type Filter = "all" | Category;
 
 const FILTERS: { key: Filter; label: string }[] = [
-  { key: "all", label: "Todos" },
-  { key: "infra", label: "Infraestructura" },
-  { key: "security", label: "Seguridad" },
-  { key: "tooling", label: "Herramientas" },
+  { key: "all", label: "All" },
+  { key: "infra", label: "Infrastructure" },
+  { key: "security", label: "Security" },
+  { key: "tooling", label: "Tools" },
 ];
 
 export default function Catalog() {
@@ -26,8 +26,8 @@ export default function Catalog() {
 
   return (
     <>
-      <div className={styles.filters}>
-        <span className={styles.filterLabel}>FILTRAR_POR</span>
+      <div className={styles.filters} id="catalog">
+        <span className={styles.filterLabel}>FILTER BY</span>
         {FILTERS.map((f) => (
           <button
             key={f.key}

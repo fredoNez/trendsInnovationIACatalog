@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { Asset } from "@/lib/assets";
-import { visualsByAssetId } from "@/components/visuals";
+import { VisualsByAsset } from "@/components/visuals";
 import Tag from "@/shared/Tag/Tag";
 import Badge from "@/shared/Badge/Badge";
 import CardId from "@/shared/CardId/CardId";
@@ -24,7 +24,7 @@ export default function DetailPanel({ asset, onClose }: Props) {
   }, [onClose]);
 
   const isOpen = asset !== null;
-  const Visual = asset ? visualsByAssetId[asset.id] : null;
+  const Visual = asset ? <VisualsByAsset asset={asset} /> : null;
 
   return (
     <>
@@ -41,7 +41,7 @@ export default function DetailPanel({ asset, onClose }: Props) {
                 <h2 className={styles.title}>{asset.title}</h2>
               </div>
               <button className={styles.close} onClick={onClose}>
-                CERRAR ✕
+                CLOSE ✕
               </button>
             </div>
 
@@ -50,7 +50,7 @@ export default function DetailPanel({ asset, onClose }: Props) {
             </Badge>
             <p className={styles.desc}>{asset.longDesc}</p>
 
-            <div className={styles.sectionLabel}>Métricas</div>
+            <div className={styles.sectionLabel}>Metrics</div>
             <div className={styles.metrics}>
               {asset.metrics.map((m) => (
                 <div className={styles.metricBox} key={m.label}>
@@ -60,15 +60,15 @@ export default function DetailPanel({ asset, onClose }: Props) {
               ))}
             </div>
 
-            <div className={styles.sectionLabel}>Stack técnico</div>
+            <div className={styles.sectionLabel}>Technical Stack</div>
             <div className={styles.tags}>
               {asset.stack.map((t) => (
                 <Tag key={t}>{t}</Tag>
               ))}
             </div>
 
-            <div className={styles.sectionLabel}>Vista previa</div>
-            <div className={styles.visualWrap}>{Visual && <Visual />}</div>
+            <div className={styles.sectionLabel}>Preview</div>
+            <div className={styles.visualWrap}>{Visual && <VisualsByAsset asset={asset} />}</div>
             <div className={styles.button}>
               <button className={styles.close}>
                 <Link href={asset.repositoryUrl || "#"} target="_blank" rel="noopener noreferrer">

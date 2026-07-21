@@ -16,6 +16,7 @@ export type GridArea = {
 export type Asset = {
   id: string; // used to look up the matching visual component, e.g. "gateway"
   code: string; // catalog id shown on the card, e.g. "GTW-01"
+  status: string; // "live" | "inDev" | "deprecated"
   category: Category;
   colorClass: ColorClass;
   badgeText: string;
@@ -28,6 +29,14 @@ export type Asset = {
   gridArea: GridArea; // where this card sits in the bento grid
   featured?: boolean; // gets a bigger title/desc and taller visual area
   repositoryUrl?: string; // optional URL to the asset's repository
+  vPIICovered?: {
+    email: boolean;
+    phone: boolean;
+    name: boolean;
+    id_number: boolean;
+    address: boolean;
+    credit_card: boolean;
+  }
 };
 
 export const assets: Asset[] = [
@@ -77,24 +86,33 @@ export const assets: Asset[] = [
   {
     id: "pii",
     code: "PII-03",
+    status: "inDev",
     category: "security",
     colorClass: "green",
     badgeText: "In Development",
     title: "PII Sanitizer Service",
-    shortDesc:
-      "Detecta y redacta datos personales en texto antes de que lleguen a un modelo o a un log.",
+      shortDesc:
+        "Detect and redact personal data in text before it reaches a model or a log.",
     longDesc:
-      "Middleware que intercepta texto antes de que llegue a un modelo o a un sistema de logging, detecta entidades sensibles (nombres, emails, teléfonos, IDs) y las redacta o tokeniza de forma reversible. Cumple con políticas internas de retención de datos y GDPR.",
-    tags: ["Presidio", "spaCy", "FastAPI"],
-    stack: ["Presidio", "spaCy", "FastAPI", "Redis"],
+      "Middleware that intercepts text before it reaches a model or logging system, detecting sensitive entities (names, emails, phone numbers, IDs) and reversibly redacting or tokenizing them. It complies with internal data retention policies and GDPR.",
+    tags: ["Presidio"],
+    stack: ["Presidio"],
     metrics: [
-      { label: "ENTIDADES_DETECTADAS", value: "14 tipos" },
-      { label: "PRECISIÓN", value: "98.4%" },
-      { label: "LATENCIA_P50", value: "22ms" },
-      { label: "REQUESTS_DÍA", value: "640K" },
+      { label: "DETECTED_ENTITIES", value: "6 types" },
+      { label: "PRECISION", value: "98.4%" },
+      { label: "LATENCY_P50", value: "22ms" },
+      { label: "DAILY_REQUESTS", value: "640K" },
     ],
     gridArea: { colStart: 1, colEnd: 3, rowStart: 1, rowEnd: 2 },
-    repositoryUrl: "#"
+    repositoryUrl: "#",
+    vPIICovered: {
+      "email": true,
+      "phone": true,
+      "name": true,
+      "id_number": true,
+      "address": false,
+      "credit_card": false
+    }
   },
   // {
   //   id: "eval",

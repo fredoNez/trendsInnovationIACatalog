@@ -6,7 +6,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
-  z-index: 40;
+  z-index: 4000;
 
   &.open {
     opacity: 1;
@@ -22,7 +22,7 @@
   width: min(520px, 92vw);
   background: var(--bg-panel);
   border-left: 1px solid var(--line-strong);
-  z-index: 50;
+  z-index: 5000;
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   overflow-y: auto;

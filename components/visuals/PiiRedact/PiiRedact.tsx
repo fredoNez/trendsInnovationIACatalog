@@ -1,14 +1,16 @@
 import styles from "./PiiRedact.module.scss";
 
-export default function PiiRedact() {
+export default function PiiRedact({ content }: { content: any }) {
+  console.log("🚀 ~ PiiRedact ~ content:", content.vPIICovered);
   return (
     <div className={styles.block}>
-      <div className={styles.line}>
-        name: <span className={`${styles.bar} ${styles.b1}`} />
-      </div>
-      <div className={styles.line}>
-        email: <span className={`${styles.bar} ${styles.b2}`} />
-      </div>
+      {Object.entries(content?.vPIICovered || {}).map(([key, value]) => {
+        return (
+          <div key={key} className={styles.line}>
+            {key}: <span className={`${styles.bar} ${styles.b1}`} />
+          </div>
+        );
+      })}
     </div>
   );
 }

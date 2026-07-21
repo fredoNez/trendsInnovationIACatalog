@@ -1,8 +1,17 @@
+import { assets } from "@/lib/assets";
 import styles from "./Hero.module.scss";
 
 export default function Hero() {
+
+  const assetsCounter = (number: number | string): string => {
+    return String(number).padStart(2, '0');
+  }
+
+  const asstetsInDev = assetsCounter( assets.filter((a) => a.status === "inDev").length);
+  const assetsLive = assetsCounter(assets.filter((a) => a.status === "live").length);
+  const teamsIntegrated = assetsCounter(2); // TODO: calculate this dynamically based on the assets and their integrations
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} id="overview">
       <div>
         <div className={styles.eyebrow}>Deep Tech / Internal Infrastructure</div>
         <h1>Production-ready AI infrastructure, in a single catalog.</h1>
@@ -15,20 +24,16 @@ export default function Hero() {
       <div className={styles.readout}>
         <div className={styles.row}>
           <span className={styles.label}>ASSETS LIVE</span>
-          <span className={styles.value}>00</span>
+          <span className={styles.value}>{assetsLive}</span>
         </div>
         <div className={styles.row}>
           <span className={styles.label}>ASSETS IN DEVELOPMENT</span>
-          <span className={`${styles.value} ${styles.green}`}>01</span>
+          <span className={`${styles.value} ${styles.green}`}>{asstetsInDev}</span>
         </div>
         <div className={styles.row}>
           <span className={styles.label}>TEAMS INTEGRATED</span>
-          <span className={`${styles.value} ${styles.blue}`}>2</span>
+          <span className={`${styles.value} ${styles.blue}`}>{teamsIntegrated}</span>
         </div>
-        {/* <div className={styles.row}>
-          <span className={styles.label}>LAST_DEPLOY</span>
-          <span className={styles.subtle}>NeVER</span>
-        </div> */}
       </div>
     </section>
   );

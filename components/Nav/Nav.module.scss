@@ -1,3 +1,13 @@
+.navWrapper {
+  min-height: 80px;
+  margin-bottom: 56px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navWrapper.hidden {
+  transform: translateY(-100%);
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -5,6 +15,28 @@
   padding: 26px 0;
   border-bottom: 1px solid var(--line);
   margin-bottom: 56px;
+  transition: background 0.3s ease, padding 0.3s ease, border 0.3s ease;
+  width: 100%;
+}
+
+
+.nav.scrolled {
+position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--line-strong);
+  padding: 16px 5%; /* Un padding lateral cómodo para cuando es fija */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Sombra elegante */
+   transition: background 0.3s ease, padding 0.3s ease, border 0.3s ease;
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
 }
 
 .brand {
@@ -15,6 +47,7 @@
   font-weight: 600;
   font-size: 16px;
   letter-spacing: 0.02em;
+  margin-left: 50px;
 
   small {
     font-family: var(--font-mono);
@@ -63,6 +96,7 @@
   padding: 6px 12px;
   border: 1px solid var(--line);
   border-radius: 3px;
+  margin-right: 50px;
 }
 
 .dot {

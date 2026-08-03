@@ -3,14 +3,14 @@ import styles from "./TemplateStack.module.scss";
 
 const technologies = [
   {
-    label: "Template 1: Full Stack Web App",
+    label: "Template 1: Angular Web App",
     frontEnd: `Angular 17`,
     backend: `Django`,
     frontEndIcon: <SiAngular />,
     backendIcon: <SiDjango />
   },
   {
-    label: "Template 2: Next App",
+    label: "Template 2: Next.js App",
     frontEnd: `Next.js`,
     backend: ` Node.js`,
     frontEndIcon: <SiNextdotjs />,

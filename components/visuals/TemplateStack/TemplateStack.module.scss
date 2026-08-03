@@ -1,0 +1,32 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+}
+
+.row {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 7px 11px;
+  background: var(--bg-panel-3);
+  color: var(--text-mid);
+}
+
+.row .technologies {
+padding-top: 5px; 
+}
+
+.row .technologies span {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 5px 9px;
+  border-radius: 10px;
+  background-color: var(--bg-panel-2);
+  color: var(--text-mid);
+  font-size: 10px;  
+  
+}

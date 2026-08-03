@@ -43,11 +43,15 @@ export default function AssetCard({ asset, dimmed, onOpen }: Props) {
       </div>
       <h3 className={styles.title}>{asset.title}</h3>
       <p className={styles.desc}>{asset.shortDesc}</p>
-      <div className={styles.tags}>
-        {asset.tags.map((tag) => (
-          <Tag key={tag}>{tag}</Tag>
-        ))}
-      </div>
+
+      {asset.tags.length > 0 && (
+        <div className={styles.tags}>
+          {asset.tags.map((tag) => (
+            <Tag key={tag}>{tag}</Tag>
+          ))}
+        </div> 
+      )}
+      
       <div className={styles.visual}>
         <VisualsByAsset asset={asset} />
       </div>

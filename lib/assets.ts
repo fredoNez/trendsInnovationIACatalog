@@ -36,63 +36,20 @@ export type Asset = {
     id_number: boolean;
     address: boolean;
     credit_card: boolean;
-  }
+  };
 };
 
 export const assets: Asset[] = [
-  // {
-  //   id: "gateway",
-  //   code: "GTW-01",
-  //   category: "infra",
-  //   colorClass: "blue",
-  //   badgeText: "v3.1.0 · Production",
-  //   title: "LLM Unified Gateway",
-  //   shortDesc:
-  //     "Enruta cada solicitud a GPT, Claude, Gemini o Llama a través de un único endpoint, con failover automático y control de costos por equipo.",
-  //   longDesc:
-  //     "Punto único de entrada para todos los proveedores de modelos. Enruta cada llamada según latencia, costo o disponibilidad, hace retry automático ante rate limits y aplica failover a un proveedor secundario sin cambios en el código del cliente. Incluye logging estructurado y métricas por equipo, modelo y endpoint.",
-  //   tags: ["LiteLLM", "FastAPI", "Redis", "Kubernetes"],
-  //   stack: ["LiteLLM", "FastAPI", "Redis", "Kubernetes", "PostgreSQL", "Grafana"],
-  //   metrics: [
-  //     { label: "REQUESTS_DÍA", value: "1.2M" },
-  //     { label: "LATENCIA_P50", value: "180ms" },
-  //     { label: "PROVEEDORES", value: "6" },
-  //     { label: "AHORRO_COSTO", value: "31%" },
-  //   ],
-  //   gridArea: { colStart: 1, colEnd: 3, rowStart: 1, rowEnd: 3 },
-  //   featured: true,
-  // },
-  // {
-  //   id: "rag",
-  //   code: "RAG-02",
-  //   category: "infra",
-  //   colorClass: "blue",
-  //   badgeText: "v2.4.0 · Production",
-  //   title: "RAG Pipeline Component",
-  //   shortDesc:
-  //     "Encadena recuperación, reranking y generación en un único pipeline desplegable para respuestas verificables.",
-  //   longDesc:
-  //     "Componente desplegable que encadena chunking, embeddings, búsqueda vectorial, reranking y generación. Configurable por YAML, con soporte para múltiples fuentes de datos (Notion, Confluence, S3) y evaluación de relevancia integrada antes de pasar a producción.",
-  //   tags: ["LangChain", "Pinecone", "Cohere Rerank"],
-  //   stack: ["LangChain", "Pinecone", "Cohere Rerank", "OpenAI Embeddings", "FastAPI"],
-  //   metrics: [
-  //     { label: "DOCS_INDEXADOS", value: "48K" },
-  //     { label: "LATENCIA_P50", value: "640ms" },
-  //     { label: "RECALL@10", value: "0.91" },
-  //     { label: "FUENTES", value: "5" },
-  //   ],
-  //   gridArea: { colStart: 3, colEnd: 5, rowStart: 1, rowEnd: 2 },
-  // },
   {
     id: "pii",
     code: "PII-03",
     status: "inDev",
     category: "security",
-    colorClass: "green",
+    colorClass: "blue",
     badgeText: "In Development",
     title: "PII Sanitizer Service",
-      shortDesc:
-        "Detect and redact personal data in text before it reaches a model or a log.",
+    shortDesc:
+      "Detect and redact personal data in text before it reaches a model or a log.",
     longDesc:
       "Middleware that intercepts text before it reaches a model or logging system, detecting sensitive entities (names, emails, phone numbers, IDs) and reversibly redacting or tokenizing them. It complies with internal data retention policies and GDPR.",
     tags: ["Presidio"],
@@ -103,95 +60,34 @@ export const assets: Asset[] = [
       { label: "LATENCY_P50", value: "22ms" },
       { label: "DAILY_REQUESTS", value: "640K" },
     ],
-    gridArea: { colStart: 1, colEnd: 3, rowStart: 1, rowEnd: 2 },
-    repositoryUrl: "#",
+    gridArea: { colStart: 1, colEnd: 2, rowStart: 1, rowEnd: 1 },
+    repositoryUrl: "NaN",
     vPIICovered: {
-      "email": true,
-      "phone": true,
-      "name": true,
-      "id_number": true,
-      "address": false,
-      "credit_card": false
-    }
+      email: true,
+      phone: true,
+      name: true,
+      id_number: true,
+      address: false,
+      credit_card: false,
+    },
   },
-  // {
-  //   id: "eval",
-  //   code: "EVL-04",
-  //   category: "infra",
-  //   colorClass: "blue",
-  //   badgeText: "v1.0.0 · Beta",
-  //   title: "Model Evaluation Framework",
-  //   shortDesc: "Compara modelos contra tus propios test sets y métricas.",
-  //   longDesc:
-  //     "Framework para correr suites de evaluación contra cualquier modelo del Gateway. Soporta métricas automáticas (exact match, BLEU, similitud semántica) y evaluación asistida por LLM. Los resultados se versionan junto al prompt o modelo evaluado.",
-  //   tags: ["Promptfoo", "Pandas"],
-  //   stack: ["Promptfoo", "Pandas", "pytest", "Matplotlib"],
-  //   metrics: [
-  //     { label: "TEST_SETS", value: "37" },
-  //     { label: "MODELOS_COMPARADOS", value: "6" },
-  //     { label: "RUNS_SEMANA", value: "210" },
-  //     { label: "COBERTURA", value: "Beta" },
-  //   ],
-  //   gridArea: { colStart: 1, colEnd: 2, rowStart: 3, rowEnd: 4 },
-  // },
-  // {
-  //   id: "prompts",
-  //   code: "PLB-05",
-  //   category: "infra",
-  //   colorClass: "blue",
-  //   badgeText: "v4.0.1 · Production",
-  //   title: "Versioned Prompt Library",
-  //   shortDesc: "Versiona cada prompt como código: diffable y con rollback inmediato.",
-  //   longDesc:
-  //     "Repositorio central de prompts versionados como código. Cada cambio pasa por pull request, con diff legible y rollback inmediato a cualquier versión anterior. Se integra directamente con el Gateway para servir la versión activa en producción.",
-  //   tags: ["Git", "YAML"],
-  //   stack: ["Git", "YAML", "FastAPI", "GitHub Actions"],
-  //   metrics: [
-  //     { label: "PROMPTS_ACTIVOS", value: "92" },
-  //     { label: "EQUIPOS", value: "9" },
-  //     { label: "ROLLBACKS_MES", value: "3" },
-  //     { label: "VERSIÓN", value: "v4.0.1" },
-  //   ],
-  //   gridArea: { colStart: 2, colEnd: 3, rowStart: 3, rowEnd: 4 },
-  // },
-  // {
-  //   id: "starter",
-  //   code: "SDK-06",
-  //   category: "tooling",
-  //   colorClass: "amber",
-  //   badgeText: "v2.0.0 · Stable",
-  //   title: "AI Project Starter Kit",
-  //   shortDesc: "Scaffold de un proyecto de IA listo para producción.",
-  //   longDesc:
-  //     "Plantilla de proyecto que scaffoldea en un comando la estructura base de un servicio de IA: autenticación, logging estructurado, conexión al Gateway y evaluaciones preconfiguradas. Pensado para pasar de idea a primer deploy en menos de un día.",
-  //   tags: ["Cookiecutter", "Docker"],
-  //   stack: ["Cookiecutter", "Docker", "GitHub Actions", "FastAPI"],
-  //   metrics: [
-  //     { label: "PROYECTOS_CREADOS", value: "46" },
-  //     { label: "TIEMPO_SETUP", value: "~12 min" },
-  //     { label: "PLANTILLAS", value: "4" },
-  //     { label: "VERSIÓN", value: "v2.0.0" },
-  //   ],
-  //   gridArea: { colStart: 3, colEnd: 4, rowStart: 3, rowEnd: 4 },
-  // },
-  // {
-  //   id: "review",
-  //   code: "CRA-07",
-  //   category: "tooling",
-  //   colorClass: "amber",
-  //   badgeText: "v0.9.0 · Beta",
-  //   title: "AI Code Review Assistant",
-  //   shortDesc: "Revisa pull requests y marca cambios riesgosos antes del merge.",
-  //   longDesc:
-  //     "Bot que se ejecuta en cada pull request, analiza el diff con ayuda de un modelo del Gateway y señala riesgos comunes: manejo de errores faltante, cambios de seguridad sin test, o breaking changes no documentados. Comenta directamente en la PR.",
-  //   tags: ["GitHub Actions", "tree-sitter"],
-  //   stack: ["GitHub Actions", "tree-sitter", "OpenAI API"],
-  //   metrics: [
-  //     { label: "PRs_REVISADOS_MES", value: "310" },
-  //     { label: "FALSOS_POSITIVOS", value: "8%" },
-  //     { label: "REPOS_CONECTADOS", value: "14" },
-  //     { label: "VERSIÓN", value: "v0.9.0" },
-  //   ],
-  //   gridArea: { colStart: 4, colEnd: 5, rowStart: 3, rowEnd: 4 },
-  // },
+  {
+    id: "templateStack",
+    code: "TEM-04",
+    status: "inDev",
+    category: "infra",
+    colorClass: "green",
+    badgeText: "Ready to Use",
+    title: "Frontend & Backend Templates",
+    shortDesc:
+      "Templates for frontend and backend services, providing a starting point for building applications with best practices in mind.",
+    longDesc:
+      "Templates for frontend and backend services, providing a starting point for building applications with best practices in mind. Includes pre-configured routing, state management, and API integration.",
+    tags: [],
+    stack: [],
+    metrics: [],
+    gridArea: { colStart: 2, colEnd: 3, rowStart: 2, rowEnd: 1 },
+    repositoryUrl: "https://github.com/fredoNez/trendsInnovationIA/tree/main/fullstackTemplates",
+  },
+  
 ];

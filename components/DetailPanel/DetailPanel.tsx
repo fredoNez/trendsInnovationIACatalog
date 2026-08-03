@@ -7,7 +7,7 @@ import Tag from "@/shared/Tag/Tag";
 import Badge from "@/shared/Badge/Badge";
 import CardId from "@/shared/CardId/CardId";
 import styles from "./DetailPanel.module.scss";
-import Link from 'next/link';
+import Link from "next/link";
 
 type Props = {
   asset: Asset | null;
@@ -50,32 +50,47 @@ export default function DetailPanel({ asset, onClose }: Props) {
             </Badge>
             <p className={styles.desc}>{asset.longDesc}</p>
 
-            <div className={styles.sectionLabel}>Metrics</div>
-            <div className={styles.metrics}>
-              {asset.metrics.map((m) => (
-                <div className={styles.metricBox} key={m.label}>
-                  <div className={styles.metricLabel}>{m.label}</div>
-                  <div className={styles.metricValue}>{m.value}</div>
+            {asset.metrics.length > 0 && (
+              <>
+                <div className={styles.sectionLabel}>Metrics</div>
+                <div className={styles.metrics}>
+                  {asset.metrics.map((m) => (
+                    <div className={styles.metricBox} key={m.label}>
+                      <div className={styles.metricLabel}>{m.label}</div>
+                      <div className={styles.metricValue}>{m.value}</div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-
-            <div className={styles.sectionLabel}>Technical Stack</div>
-            <div className={styles.tags}>
-              {asset.stack.map((t) => (
-                <Tag key={t}>{t}</Tag>
-              ))}
-            </div>
+              </>
+            )}
+            {asset.stack.length > 0 && (
+              <>
+                <div className={styles.sectionLabel}>Technical Stack</div>
+                <div className={styles.tags}>
+                  {asset.stack.map((t) => (
+                    <Tag key={t}>{t}</Tag>
+                  ))}
+                </div>
+              </>
+            )}
 
             <div className={styles.sectionLabel}>Preview</div>
-            <div className={styles.visualWrap}>{Visual && <VisualsByAsset asset={asset} />}</div>
-            <div className={styles.button}>
-              <button className={styles.close}>
-                <Link href={asset.repositoryUrl || "#"} target="_blank" rel="noopener noreferrer">
-                  View Repository →
-                </Link>
-              </button>
+            <div className={styles.visualWrap}>
+              {Visual && <VisualsByAsset asset={asset} />}
             </div>
+            {asset.repositoryUrl && asset.repositoryUrl !== "NaN" && (
+              <div className={styles.button}>
+                <button className={styles.close}>
+                  <Link
+                    href={asset.repositoryUrl || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Repository →
+                  </Link>
+                </button>
+              </div>
+            )}
           </>
         )}
       </div>

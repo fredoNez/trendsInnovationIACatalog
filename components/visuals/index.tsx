@@ -7,6 +7,7 @@ import PromptStack from "./PromptStack/PromptStack";
 import StarterTerminal from "./StarterTerminal/StarterTerminal";
 import ReviewDiff from "./ReviewDiff/ReviewDiff";
 import { Asset } from "@/lib/assets";
+import TemplateStack from "./TemplateStack/TemplateStack";
 
 interface VisualProps {
   content: any;
@@ -21,6 +22,7 @@ export const VisualsByAsset = ({asset}: {asset: Asset}) => {
   prompts: PromptStack,
   starter: StarterTerminal,
   review: ReviewDiff,
+  templateStack: TemplateStack,
 };
 
 const VisualComponent = visualsByAssetId[asset.id];
@@ -29,13 +31,3 @@ if(!VisualComponent) {
 }
 return <VisualComponent content={asset} />;
 }; 
-
-// export const visualsByAssetId: Record<string, ComponentType> = {
-//   gateway: GatewayDiagram,
-//   rag: RagPipeline,
-//   pii: PiiRedact,
-//   eval: EvalBars,
-//   prompts: PromptStack,
-//   starter: StarterTerminal,
-//   review: ReviewDiff,
-// };

@@ -13,11 +13,26 @@ export type GridArea = {
   rowEnd: number;
 };
 
+export type GatewayTarget = {
+  label: string;
+  active?: boolean;
+  tooltip?: string;
+};
+
+export type GatewayConfig = {
+  source?: string;
+  sourceTooltip?: string;
+  gatewayLabel?: string;
+  gatewaySubtitle?: string;
+  gatewayTooltip?: string;
+  targets: GatewayTarget[];
+};
+
 export type Asset = {
   id: string; // used to look up the matching visual component, e.g. "gateway"
   code: string; // catalog id shown on the card, e.g. "GTW-01"
   status: string; // "live" | "inDev" | "deprecated"
-  category: Category;
+  category: Category; // used for filtering and color coding
   colorClass: ColorClass;
   badgeText: string;
   title: string;
@@ -37,12 +52,13 @@ export type Asset = {
     address: boolean;
     credit_card: boolean;
   };
+  gatewayConfig?: GatewayConfig;
 };
 
 export const assets: Asset[] = [
   {
     id: "pii",
-    code: "PII-03",
+    code: "Layer 2",
     status: "inDev",
     category: "security",
     colorClass: "blue",
@@ -73,8 +89,8 @@ export const assets: Asset[] = [
   },
   {
     id: "templateStack",
-    code: "TEM-04",
-    status: "inDev",
+    code: "Layer 1",
+    status: "live",
     category: "infra",
     colorClass: "green",
     badgeText: "Ready to Use",
@@ -89,5 +105,33 @@ export const assets: Asset[] = [
     gridArea: { colStart: 2, colEnd: 3, rowStart: 2, rowEnd: 1 },
     repositoryUrl: "https://github.com/fredoNez/trendsInnovationIA/tree/main/fullstackTemplates",
   },
-  
+    {
+    id: "authModuleApiGateway",
+    code: "Layer 1",
+    status: "live",
+    category: "infra",
+    colorClass: "green",
+    badgeText: "Ready to Use",
+    title: "Auth Module and API Gateway",
+    shortDesc:
+      "A standard Node.js/TypeScript service to handle JWT, rate limiting, and basic routing that any application will consume.",
+    longDesc:
+      "A standard Node.js/TypeScript service to handle JWT, rate limiting, and basic routing that any application will consume. Includes pre-configured authentication, authorization, and API gateway functionality.",
+    tags: [],
+    stack: ["Node.js", "TypeScript"],
+    metrics: [],
+    gridArea: { colStart: 3, colEnd: 5, rowStart: 2, rowEnd: 1 },
+    repositoryUrl: "https://github.com/fredoNez/trendsInnovationIA/tree/main/auth-module-api-gateway",
+    gatewayConfig: {
+      source: "APP",
+      sourceTooltip: "Incoming Request",
+      gatewayLabel: "AUTH",
+      gatewaySubtitle: "jwt+rate",
+      gatewayTooltip: "[🛡️ JWT Validation → 🚦 Rate Limit ]",
+      targets: [
+        { label: "API 1", active: true, tooltip: "⚙️ Microservice" }
+      ],
+    },
+  },
+
 ];

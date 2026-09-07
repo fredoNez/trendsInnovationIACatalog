@@ -1,5 +1,5 @@
 import { ComponentType } from "react";
-import GatewayDiagram from "./GatewayDiagram/GatewayDiagram";
+import GatewayDiagramVisual from "./GatewayDiagram/GatewayDiagramVisual";
 import RagPipeline from "./RagPipeline/RagPipeline";
 import PiiRedact from "./PiiRedact/PiiRedact";
 import EvalBars from "./EvalBars/EvalBars";
@@ -15,7 +15,7 @@ interface VisualProps {
 
 export const VisualsByAsset = ({asset}: {asset: Asset}) => {
   const visualsByAssetId: Record<string, ComponentType<VisualProps>> = {
-  gateway: GatewayDiagram,
+  gateway: GatewayDiagramVisual,
   rag: RagPipeline,
   pii: PiiRedact,
   eval: EvalBars,
@@ -23,6 +23,7 @@ export const VisualsByAsset = ({asset}: {asset: Asset}) => {
   starter: StarterTerminal,
   review: ReviewDiff,
   templateStack: TemplateStack,
+  authModuleApiGateway: GatewayDiagramVisual,
 };
 
 const VisualComponent = visualsByAssetId[asset.id];
